@@ -53,12 +53,15 @@ async function main() {
 
   await transaction.wait();
 
-  // It should return a TransactionResponse object
-  console.log("Transfer Transaction Hash: ", transaction.hash);
+ // It should return a TransactionReceipt object
+ console.log("# Transfer Hash:", transfer.hash);
+
+} catch (error) {
+    console.error(error);
+    process.exitCode = 1;
 }
 
-// Using async/await pattern to handle errors properly
 main().catch((error) => {
-  console.error(error);
-  process.exitCode = 1;
+console.error(error);
+process.exitCode = 1;
 });
